@@ -153,8 +153,8 @@ impl xcm_executor::Config for XcmConfig {
 	type IsTeleporter = TrustedTeleporters;
 	type LocationInverter = LocationInverter<Ancestry>;
 	type Barrier = Barrier;
-	type Weigher = WeightInfoBounds<
-		crate::weights::xcm::RococoXcmWeight<RuntimeCall>,
+	type Weigher = FixedWeightBounds<
+		BaseXcmWeight,
 		RuntimeCall,
 		MaxInstructions,
 	>;
